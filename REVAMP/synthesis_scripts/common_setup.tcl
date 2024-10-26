@@ -29,9 +29,9 @@ set HIERARCHICAL_CELLS             "" ;# List of hierarchical block cell instanc
 # For the following variables, use a blank space to separate multiple entries.
 # Example: set TARGET_LIBRARY_FILES "lib1.db lib2.db lib3.db"
 
-set ADDITIONAL_SEARCH_PATH        "/opt/pdks/FOUNDATION_IP/STDLIB/7P5T/BASE/LVT/FE/GF22FDX_SC7P5T_116CPP_BASE_CSC28L_FE_RELV02R00/GF22FDX_SC7P5T_116CPP_BASE_CSC28L_FDK_RELV02R00/model/timing/db" ;#  Additional search path to be added to the default search path
+set ADDITIONAL_SEARCH_PATH        "/home/jt1065/Documents/si2.org/NanGate_15nm/NanGate_15nm_OCL_v0.1_2014_06_Apache.A/front_end/timing_power_noise/ECSM" ;#  Additional search path to be added to the default search path
 
-set TARGET_LIBRARY_FILES          "GF22FDX_SC7P5T_116CPP_BASE_CSC28L_TT_0P80V_0P00V_0P00V_0P00V_25C.db"  ;#  Target technology logical libraries
+set TARGET_LIBRARY_FILES          "NanGate_15nm_OCL.db"  ;#  Target technology logical libraries
 set ADDITIONAL_LINK_LIB_FILES     ""  ;#  Extra link logical libraries not included in TARGET_LIBRARY_FILES
 
 set MIN_LIBRARY_FILES             ""  ;#  List of max min library pairs "max1 min1 max2 min2 max3 min3"...
