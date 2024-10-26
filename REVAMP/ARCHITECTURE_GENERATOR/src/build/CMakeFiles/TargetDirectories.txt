@@ -1,0 +1,3 @@
+/home/jack2bs/Documents/REVAMP-2/REVAMP/ARCHITECTURE_GENERATOR/src/build/CMakeFiles/generator.dir
+/home/jack2bs/Documents/REVAMP-2/REVAMP/ARCHITECTURE_GENERATOR/src/build/CMakeFiles/edit_cache.dir
+/home/jack2bs/Documents/REVAMP-2/REVAMP/ARCHITECTURE_GENERATOR/src/build/CMakeFiles/rebuild_cache.dir

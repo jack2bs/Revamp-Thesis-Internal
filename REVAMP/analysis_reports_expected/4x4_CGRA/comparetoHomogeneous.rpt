@@ -1,0 +1,32 @@
+Architecture-> 	hycube_original_4x4_torus
+  Throughput-> 	1.0
+  Power-> 	1.0
+  Area-> 1.0
+Architecture-> 	heterogeneous_CGRA_network_2
+  Throughput-> 	0.8648648648648649
+  Power-> 	0.9695424127328631
+  Area-> 0.8798365013176366
+Architecture-> 	heterogeneous_CGRA_compute_L_network_config_0
+  Throughput-> 	1.0
+  Power-> 	0.2611683848797251
+  Area-> 0.4034214904045809
+Architecture-> 	heterogeneous_CGRA_config_3
+  Throughput-> 	1.0
+  Power-> 	0.2903237475131127
+  Area-> 0.6256338193884907
+Architecture-> 	heterogeneous_CGRA_network_config_1
+  Throughput-> 	0.9391891891891891
+  Power-> 	0.26171097847712066
+  Area-> 0.4907217388532292
+Architecture-> 	heterogeneous_CGRA_compute_L_network_0
+  Throughput-> 	0.927027027027027
+  Power-> 	0.9690842225839513
+  Area-> 0.7925416653732336
+Architecture-> 	heterogeneous_CGRA_compute_L_config_0
+  Throughput-> 	1.0
+  Power-> 	0.29021522879363354
+  Area-> 0.5367368816926089
+Architecture-> 	heterogeneous_CGRA_compute_L_0
+  Throughput-> 	0.8729729729729729
+  Power-> 	0.99797431723639
+  Area-> 0.9043831921687678

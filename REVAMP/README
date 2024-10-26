@@ -1,0 +1,157 @@
+REVAMP: Workflow
+
+A detailed walkthrough of the design space exploration performed by REVAMP for heterogeneous architecture realization, given a homogeneous architecture and set of target application kernels.
+
+Download the codes and datasets from
+
+Prerequisite
+
+   * CentOS Linux 8.X or higher
+
+   * cmake 3.5 or higher
+	CMD: cmake --version
+
+   * C++ 8.X or 9.X for CentOS 8.X
+	CMD: c++ --version
+	
+   * Synopsys Design Compiler R-2020.09
+	CMD: which dc_shell
+
+   * Nlohmann JSON ( Install with install_json.sh if not installed)
+	CMD: chmod +x install_json.sh
+	CMD: ./install_json.sh
+
+(The framework was tested on CentOS 8.5 and C++ 8.5. Please make sure to meet the prerequisites) 	
+Activate python virtual environment
+
+	CMD: virtualenv revamp_env
+	CMD: source revamp_env/bin/activate
+	CMD: pip3 install -r py_environment.txt
+
+
+Tool Installation
+
+Time Taken: ~3 min
+
+Run the following command to build the heterogeneous architecture generator and the heterogeneous CGRA mapper.
+	
+	CMD: python3 scripts/installation.py
+
+Check in the build folder whether the executables are generated.
+	CMD: ls $(PWD)/ARCHITECTURE_GENERATOR/src/build/generator
+	CMD: ls $(PWD)/HETEROGENEOUS_MAPPER/src/build/heterogeneous_compiler_c
+
+
+
+Design space exploration with REVAMP
+
+Design space exploration comprises 04 main steps.
+
+    * Generating heterogeneous architecture instances
+    * Mapping application suite onto generated architectures
+    * Power/area estimation of the architectures
+    * Analyzing for Pareto optimal design choice
+
+**End-to-end Example**
+Complete workflow can be executed automatically by running the following command. Please ensure the synthesis script is updated with available cells and process technology files.
+
+To run with synthesis:
+chmod +x revamp_run.sh
+./revamp_run.sh
+
+To run for 6x6 architecture:
+chmod +x revamp_run_6x6.sh
+./revamp_run_6x6.sh
+
+To run without synthesis(if access is restricted for Synopsys tools)
+chmod +x revamp_run_wo_synthesis_ex.sh
+./revamp_run_wo_synthesis_ex.sh
+
+NOTE: This will take ~5 hours to complete. 
+
+Following details the step-by-step flow.
+
+**Heterogeneous architecture generator**
+
+The architecture generator takes the following inputs
+
+    - Homogeneous architecture description
+
+The JSON architecture description needs to be added if one needs to introduce an architecture of a different size or a different model. Currently, the tool uses parameters to configure the RTL. Hence a parameterized RTL is provided. RTL generation will be fully automated in coming versions, such that parameterized RTL is no longer needed.
+
+	CMD: ls $(PWD)/HOMOGENEOUS_ARCHITECTURE
+
+
+    - Application suite in DFG format
+
+Application kernels are extracted and converted to Data Flow Graph(DFG) format via a llvm parser. We use Morphor DFG Generator (https://github.com/ecolab-nus/Morpher_DFG_Generator.git) to generate the DFGs. For a new application suite, one needs to follow the same procedure and generate a similar set of DFGs.
+
+	CMD: ls $(PWD)/APPLICATIONS/applications
+
+
+    - Configuration File
+
+One can input the hotspot indexes(0-4 with 4 having the highest flexibility) and the level of search (low, medium, high).
+	
+	CMD: ls $(PWD)/ARCHITECTURE_GENERATOR/config.json
+
+Execute the following command to run the heterogeneous architecture generator.
+
+	CMD: python3 scripts/revamp_run_generator.py
+
+Check generator.log for the command output. The generator will systematically apply different elements of heterogeneity. Outputs will be heterogeneous architecture descriptions in JSON format and corresponding RTL parameters.
+
+	CMD: ls $(PWD)/ARCHITECTURE_GENERATOR/generated_architectures/
+	CMD: ls $(PWD)/ARCHITECTURE_GENERATOR/generated_architectures_RTL_config/
+
+
+**Mapping suite of kernels onto the generated heterogeneous architectures**
+
+Input application kernels are mapped onto the generated architecture instances using a heterogeneous mapper. Inputs are generated architectures in JSON formal and application kernel DFGs.
+
+Execute the following command to automatically run all the application kernels onto every generated architecture instance. The x, y inputs are the dimensions of CGRA processing element array.
+
+Note: This step will take ~1 hr
+
+	CMD: python3 scripts/revamp_run_mapper.py -x 4 -y 4
+
+Mapper output will be logged in mapper.log and the results(throughput in MOPS) will be dumped to throughput.rpt
+
+	CMD: cat $(PWD)/HETEROGENEOUS_MAPPER/throughput.rpt
+
+
+**Power and area estimation with synthesis**
+
+RTL synthesis is performed for accurate power and area estimates. We use proprietary technology nodes, hence users need to modify the provided scripts with available technology nodes.
+
+Users need to update $(PWD)/synthesis_scripts/common_setup.tcl.
+
+    set ADDITIONAL_SEARCH_PATH <Path to your standard cells technology db >
+    set TARGET_LIBRARY_FILES <Name of the db file>
+
+We configure the RTL with the parameters generated with the architecture generator. Execute the following python script to automatically perform synthesis on the heterogeneous architecture instances.
+
+Note: This step will take ~4 hrs. To skip this step for the given example please copy power.rpt and area.rpt in $(PWD)/synthesis_scripts/synthesis_output to $(PWD)/synthesis_scripts and move to analysis of the results.
+
+	CMD: python3 scripts/revamp_run_synthesis.py
+
+Check synthesis.log for the outputs. Estimated power and are numbers will be logged in power.rpt and area.rpt
+	
+	CMD: cat $(PWD)/synthesis_scripts/power.rpt
+	CMD: cat $(PWD)/synthesis_scripts/area.rpt
+
+
+**Analysis of the results**
+
+Once mapping and synthesis are done, we log the results in corresponding directories. These results are used to analyze the design scope and select the Pareto optimal designs.
+	
+	CMD: python3 scripts/revamp_run_analysis.py
+
+
+Analysis logs are generated inside analysis_reports/
+	- comparetoHomogeneous.rpt : Ratio between derived architectures vs baseline architecture(ex: power(derived architecture)/power(baseline architecture)) for throughput, power, and area
+	- dse.rpt: optimal design choices in terms of power efficiency and area efficiency, and the impact on throughput
+	- dse.png: Visualizes the design space of the considered architectural instances.
+
+The expected analysis output from a trial run is added in ./analysis_reports_expected/4x4_CGRA
+

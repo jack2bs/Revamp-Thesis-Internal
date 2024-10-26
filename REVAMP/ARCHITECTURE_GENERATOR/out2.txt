@@ -1,0 +1,67 @@
+Total Number of Nodes:
+applications/spmv_INNERMOST_LN11_PartPred_DFG.xml = 27
+applications/stencil_INNERMOST_LN1111_PartPred_DFG.xml = 27
+applications/convolution2d_INNERMOST_LN11_PartPred_DFG.xml = 39
+applications/ellpack_INNERMOST_LN11_PartPred_DFG.xml = 28
+applications/gemm_INNERMOST_LN111_PartPred_DFG.xml = 27
+
+Operation Distribution:
+ADDER:37
+MULTIPLIER:7
+LOGIC:17
+CMP:14
+ADDER:49%
+MULTIPLIER:9%
+LOGIC:22%
+CMP:18%
+
+Parsing JSON:
+Parsing JSON Success!!!
+
+Parsing config:
+Parsing config Success!!!
+Generate Heterogeneous Architectures
+Heterogeneous Compute Distribution:
+ADDER:12
+MULTIPLIER:3
+LOGIC:7
+CMP:6
+Memory:4
+12
+ZZ ::ADDER 12
+12
+ZZ ::LOGIC 7
+LOGIC 3
+12
+ZZ ::COMPARATOR 6
+COMPARATOR 2
+8
+ZZ ::MULTIPLIER 3
+Placing remaining
+4
+Placing Started
+2
+COMP1
+COMP2
+Size 16
+Json array1 size 16
+Json array size 16
+COMP1
+COMP2
+Size 16
+Json array1 size 16
+Json array size 16
+COMP1
+COMP2
+Size 16
+Json array1 size 16
+Json array size 16
+COMP1
+COMP2
+Size 16
+Json array1 size 16
+Json array size 16
+HERE!
+Size 16
+Size 16
+Size 16

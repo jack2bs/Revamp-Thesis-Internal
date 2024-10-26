@@ -1,0 +1,20 @@
+
+---Analyzing the results---
+
+Throughput -->
+{'hycube_original_4x4_torus': '740.0', 'heterogeneous_CGRA_network_2': '640.0', 'heterogeneous_CGRA_compute_L_network_config_0': '740.0', 'heterogeneous_CGRA_config_3': '740.0', 'heterogeneous_CGRA_network_config_1': '695.0', 'heterogeneous_CGRA_compute_L_network_0': '686.0', 'heterogeneous_CGRA_compute_L_config_0': '740.0', 'heterogeneous_CGRA_compute_L_0': '646.0'}
+Power Efficiency -->
+{'hycube_original_4x4_torus': 89.2265026828239, 'heterogeneous_CGRA_network_2': 79.59308037657476, 'heterogeneous_CGRA_compute_L_network_config_0': 341.64358264081255, 'heterogeneous_CGRA_config_3': 307.33449622061636, 'heterogeneous_CGRA_network_config_1': 320.20271826768027, 'heterogeneous_CGRA_compute_L_network_0': 85.35417003645593, 'heterogeneous_CGRA_compute_L_config_0': 307.4494162615813, 'heterogeneous_CGRA_compute_L_0': 78.0504307272222}
+Area Efficiency -->
+{'hycube_original_4x4_torus': 0.005231521867180063, 'heterogeneous_CGRA_network_2': 0.0051425002780861265, 'heterogeneous_CGRA_compute_L_network_config_0': 0.012967880967207537, 'heterogeneous_CGRA_config_3': 0.00836195503672336, 'heterogeneous_CGRA_network_config_1': 0.010012576153941105, 'heterogeneous_CGRA_compute_L_network_0': 0.006119251990461479, 'heterogeneous_CGRA_compute_L_config_0': 0.009746902151911697, 'heterogeneous_CGRA_compute_L_0': 0.005049825380559539}
+---Pareto optimal designs---
+
+---Optimal power efficiency---
+heterogeneous_CGRA_compute_L_network_config_0
+Throughput impact:0.0%
+
+---Optimal area efficiency---
+heterogeneous_CGRA_compute_L_network_config_0
+Throughput impact:0.0%
+
+ Execution Time = 0.19321799278259277

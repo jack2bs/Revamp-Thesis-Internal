@@ -1,0 +1,6 @@
+/home/jack2bs/Documents/REVAMP-2/REVAMP/HETEROGENEOUS_MAPPER/src/build/CMakeFiles/homogeneous_compiler.dir
+/home/jack2bs/Documents/REVAMP-2/REVAMP/HETEROGENEOUS_MAPPER/src/build/CMakeFiles/heterogeneous_compiler_n.dir
+/home/jack2bs/Documents/REVAMP-2/REVAMP/HETEROGENEOUS_MAPPER/src/build/CMakeFiles/heterogeneous_compiler_c.dir
+/home/jack2bs/Documents/REVAMP-2/REVAMP/HETEROGENEOUS_MAPPER/src/build/CMakeFiles/heterogeneous_compiler_nc.dir
+/home/jack2bs/Documents/REVAMP-2/REVAMP/HETEROGENEOUS_MAPPER/src/build/CMakeFiles/edit_cache.dir
+/home/jack2bs/Documents/REVAMP-2/REVAMP/HETEROGENEOUS_MAPPER/src/build/CMakeFiles/rebuild_cache.dir

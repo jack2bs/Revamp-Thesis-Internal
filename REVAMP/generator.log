@@ -1,0 +1,7 @@
+
+---Generating heterogeneous architectures---
+src/build/generator -d applications -a /home/jack2bs/Documents/REVAMP-2/REVAMP/HOMOGENEOUS_ARCHITECTURE/hycube_original_4x4_torus.json -c config.json
+
+---Generated heterogeneous architectures ---
+
+ Execution Time = 0.07393336296081543

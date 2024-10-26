@@ -1,0 +1,10 @@
+parameter int ENABLE[16] = {32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32};
+parameter int ROUTER_CONFIG[16] = {8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8};
+parameter int OPCODE_CONFIG[16] = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+parameter int CONST_CONFIG[16] = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+parameter int LOCAL_CONFIG[16] = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+parameter int ALU_ADD[16] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+parameter int ALU_CMP[16] = {0,1,1,0,0,1,1,0,0,1,1,0,0,0,0,0};
+parameter int ALU_LOG[16] = {1,1,1,0,0,1,1,0,0,1,1,0,0,0,0,0};
+parameter int ALU_MUL[16] = {0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0};
+parameter int ALU_MEM[16] = {0,0,0,0,1,0,0,1,1,0,0,1,0,0,0,0};
