@@ -30,6 +30,7 @@ set compile_state_reachability_high_effort_merge    true
 set compile_seqmap_propagate_constants 		    false
 set compile_delete_unloaded_sequential_cells        false
 set compile_enable_register_merging		    false
+set compile_automatic_clock_phase_inference		    "relaxed"
 
 set fsm_auto_inferring                  true
 set fsm_enable_state_minimization       true
